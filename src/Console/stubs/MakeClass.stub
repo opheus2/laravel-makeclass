@@ -1,0 +1,9 @@
+<?php
+{{ isStrict }}
+
+namespace {{namespace}};
+
+{{ isFinal }}{{ isAbstract }}{{ classType }} {{ class }} 
+{
+    //code goes here
+}
