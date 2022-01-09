@@ -17,7 +17,7 @@ class MakeClass extends ClassCommand
                             {--f|final : Make the class final}
                             {--a|abstract : Make the class abstract}
                             {--x|strict : Declare strict types}
-                            {--p|path= : Declare the part to be remembered}
+                            {--p|path= : Declare the path to be remembered}
                             {--alias= : Declare the path keyword}
                             {--t|type=class : Alternative class type}';
 
