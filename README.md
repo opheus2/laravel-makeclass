@@ -1,47 +1,86 @@
-# How to contribute to laravel-makeclass
+#Laravel Make Class
+### Features
 
-Hey, thank you for contributing. Here are some tips to make it easy for you.
+- Create a php class from the command for any directory in the root name-space;
+- Store a custom path as an alias and use alias instead of full path.
+- Create interface | class | enum | trait.
+- Create final and abstract classes
+- Create class with a declare strict_type
 
-## Committing code
-
-1. Fork the project
-1. `git clone` it and `composer install` the dependencies
-1. Create a new branch
-1. Think about how the changes you are about to make can be tested, optionally write tests before coding 
-1. Run tests, make sure they fail
-1. Write the actual code to make the tests pass
-1. Open a pull request detailing your changes. Make sure to follow the [template](.github/PULL_REQUEST_TEMPLATE.md)
-
-## Testing
-
-I use **PHPUnit** for testing.
-
-Have a new feature? You can start off by writing some tests that detail
-the behaviour you want to achieve and go from there.
-
-Fixing a bug? The best way to ensure it is fixed for good and never comes
-back is to write a failing test for it and then make it pass. If you can
-not figure out how to fix it yourself, feel free to submit a PR with a
-failing test.
-
-Run the testsuite
-
+### Installation
 ```bash
-composer test
+composer require opheus2/laravel-makeclass
 ```
 
-## Codestyle
-
-Formatting is automated through [php_codesniffer](https://github.com/squizlabs/PHP_CodeSniffer).
-
-Check the codestyle
-
+###Usages
+> File is created in root name-space. E.b App
 ```bash
-composer check-style
+php artisan make:class {name}
+```
+Default type is class.
+
+------------
+
+> File is created in test folder in root name-space. E.b App/Test
+```bash
+php artisan make:class Test\{name}
+```
+------------ 
+> Create an interface type of class
+```bash
+php artisan make:class {name} -i
+					or
+php artisan make:class {name} --type interface
+```
+------------ 
+
+|  Available types | flags|
+| ------------ | 
+|  class | (default no flag) |
+|   interface | (-i or --interface) |
+|   trait | (-T or --trait) |
+|   enum | (-e or --enum) |
+
+------------
+> Using custom path with alias
+```bash
+php artisan make:class {name} -i -p="Domains/Services/" --alias="ape"
+					or
+php artisan make:class {name} -i -p=Domain\Services\ --alias=ape
+					or
+php artisan make:class {name} -i -p Domain\Services\ --alias ape
+```
+**Please note:** You always need to add a trailing slash at the end for it to work properly.
+I would surely fix that soon. 
+
+Then you can use alias as path
+```bash
+php artisan make:class {name} -i -p="ape"
+```
+This would use the same old/saved path for subsquent file names
+
+------------
+> Using modifiers
+```bash
+php artisan make:class {name} -fx
+```
+This would creat a final class with declare strict_types at the top
+You can use the -x flag to always add the strict type to any class type
+
+------------
+
+|  Available modfiers | flags|
+| ------------ | 
+|  strict | (-x or --strict) |
+|   final | (-f or --final) |
+|   abstract | (-a or --abstract) |
+
+For more info you can do 
+```bash
+php artisan make:class --help
 ```
 
-Apply automated fixes
+####Thank you
 
-```bash
-composer fix-style
-```
+###TODO
+- [ ] Add check for trailing slash and auto fix
