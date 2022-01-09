@@ -1,4 +1,4 @@
-#Laravel Make Class
+# Laravel Make Class
 ### Features
 
 - Create a php class from the command for any directory in the root name-space;
