@@ -34,12 +34,13 @@ php artisan make:class {name} --type interface
 ```
 ------------ 
 
-|  Available types | flags|
-| ------------ | 
-|  class | (default no flag) |
-|   interface | (-i or --interface) |
-|   trait | (-T or --trait) |
-|   enum | (-e or --enum) |
+| Available types | flags           |
+| ------------| :-------------:
+| class     | (default no flag)     |
+| interface | (-i or --interface)   |
+| trait     | (-T or --trait)       |
+| enum      | (-e or --enum)        |
+
 
 ------------
 > Using custom path with alias
@@ -57,20 +58,20 @@ Then you can use alias as path
 ```bash
 php artisan make:class {name} -i -p="ape"
 ```
-This would use the same old/saved path for subsquent file names
+This would use the same old/saved path for subsequent file names
 
 ------------
 > Using modifiers
 ```bash
 php artisan make:class {name} -fx
 ```
-This would creat a final class with declare strict_types at the top
+This would create a final class with declare strict_types at the top
 You can use the -x flag to always add the strict type to any class type
 
 ------------
 
-|  Available modfiers | flags|
-| ------------ | 
+|  Available modifiers | flags |
+| ------------ | :-------------:|
 |  strict | (-x or --strict) |
 |   final | (-f or --final) |
 |   abstract | (-a or --abstract) |
